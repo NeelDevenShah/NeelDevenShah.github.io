@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leo Miranda - Frontend Developer</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .full-width {
+        grid-column: span 3;
+      }
+      .half-width {
+        grid-column: span 2;
+      }
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav a:hover {
+        color: var(--accent-color);
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid var(--accent-color);
+        object-fit: cover;
+      }
+      .tech-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .tech-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--highlight-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.8em;
+        transition: transform 0.2s ease;
+      }
+      .tech-icon:hover {
+        transform: scale(1.1);
+      }
+      .highlight {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        display: inline-block;
+        font-weight: 500;
+      }
+      h2,
+      h3 {
+        margin-top: 0;
+        color: var(--accent-color);
+      }
+      .quote {
+        font-style: italic;
+        font-size: 1.2em;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .education-item {
+        margin-bottom: 10px;
+      }
+      .education-year {
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+      <div class="card full-width">
+        <h2>Who am I?</h2>
+        <p>
+          Hello! I am a developer who really enjoys transforming ideas into
+          functional software that exceeds expectations. I like to be constantly
+          learning from other professionals, teams and communities to stay on
+          top of the latest industry trends. Being a developer is not just a job
+          for me; it is an activity that I absolutely appreciate all the time.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="highlight">Frontend developer</h3>
+      </div>
+      <div class="card half-width">
+        <h3>Technologies I have worked with</h3>
+        <div class="tech-icons" id="techIcons"></div>
+      </div>
+      <div class="card">
+        <img
+          src="https://via.placeholder.com/120"
+          alt="Leo Miranda"
+          class="profile-img"
+        />
+        <h2>Leo Miranda</h2>
+      </div>
+      <div class="card">
+        <p class="quote">"I really like creating software solutions"</p>
+      </div>
+      <div class="card full-width">
+        <h3>Education</h3>
+        <div class="education-item">
+          <span class="education-year">2022:</span> Full Stack Development
+          Immersive
+        </div>
+        <div class="education-item">
+          <span class="education-year">2018-2021:</span> Computer Engineering
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const techIcons = [
+        "JS",
+        "TS",
+        "V",
+        "React",
+        "Gatsby",
+        "Tailwind",
+        "Vue",
+        "Angular",
+        "UI",
+        "Figma",
+        "Electron",
+        "MongoDB",
+      ];
+
+      const techIconsContainer = document.getElementById("techIcons");
+      techIcons.forEach((tech) => {
+        const icon = document.createElement("div");
+        icon.className = "tech-icon";
+        icon.textContent = tech;
+        techIconsContainer.appendChild(icon);
+      });
+    </script>
+  </body>
+</html>
