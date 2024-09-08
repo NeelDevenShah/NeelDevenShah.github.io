@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav a:hover {
+        color: var(--accent-color);
+      }
+      h2,
+      h3 {
+        margin-top: 0;
+        color: var(--accent-color);
+      }
+      .btn {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+      <div class="card full-width">
+        <h2>Projects</h2>
+        <p>Here is a collection of projects showcasing my skills and work.</p>
+      </div>
+
+      <div class="card">
+        <h3>Shadcn Landing Page</h3>
+        <p>
+          A responsive landing page with sections to promote a product or
+          service. Includes dark mode, meta tags, and a clean interface.
+        </p>
+        <a href="#" class="btn">Preview</a>
+        <a href="#" class="btn">GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Magenta Kitchen</h3>
+        <p>
+          An elegant digital menu for a restaurant with a QR code feature,
+          showcasing all available dishes and info.
+        </p>
+        <a href="#" class="btn">Preview</a>
+        <a href="#" class="btn">GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Sk8ter</h3>
+        <p>
+          E-commerce site for skateboards with authentication, a dashboard, and
+          dark mode.
+        </p>
+        <a href="#" class="btn">Preview</a>
+        <a href="#" class="btn">GitHub</a>
+      </div>
+    </div>
+  </body>
+</html>

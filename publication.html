@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publications</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav a:hover {
+        color: var(--accent-color);
+      }
+      h1 {
+        text-align: center;
+        color: var(--accent-color);
+        margin-bottom: 40px;
+      }
+      .publication {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .publication:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .publication img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+      .publication-title {
+        font-size: 1.4em;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+      }
+      .publication-desc {
+        margin-bottom: 15px;
+      }
+      .btn-read-more {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+      .btn-read-more:hover {
+        background-color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+      <h1>My Publications</h1>
+
+      <div class="publication">
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="AI-Driven Healthcare"
+        />
+        <h2 class="publication-title">
+          Research on AI-Driven Healthcare Systems
+        </h2>
+        <p class="publication-desc">
+          This paper discusses the implementation of AI-based healthcare
+          systems, including smart appointment scheduling and real-time analysis
+          during doctor-patient meetings.
+        </p>
+        <a href="publication-details.html" class="btn-read-more">Read More</a>
+      </div>
+
+      <div class="publication">
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="Geospatial Imaging"
+        />
+        <h2 class="publication-title">Geospatial Imaging in AI</h2>
+        <p class="publication-desc">
+          An in-depth look at the intersection of AI and geospatial imaging,
+          exploring various applications such as satellite image analysis and
+          urban planning.
+        </p>
+        <a href="publication-details.html" class="btn-read-more">Read More</a>
+      </div>
+
+      <div class="publication">
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="Product Classification"
+        />
+        <h2 class="publication-title">
+          Hierarchical Product Classification Using Transformers
+        </h2>
+        <p class="publication-desc">
+          A study that focuses on the development of a hierarchical
+          classification model for product catalogs using transformers, with
+          real-world applications in e-commerce.
+        </p>
+        <a href="publication-details.html" class="btn-read-more">Read More</a>
+      </div>
+
+      <div class="publication">
+        <img src="https://via.placeholder.com/800x400" alt="Drug Discovery" />
+        <h2 class="publication-title">
+          Understanding Deep Learning for Drug Discovery
+        </h2>
+        <p class="publication-desc">
+          This publication dives into deep learning approaches for generating
+          chemical structures and predictions for drug discovery using SMILES
+          notation.
+        </p>
+        <a href="publication-details.html" class="btn-read-more">Read More</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+        --hover-color: #00a8e8;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        display: flex;
+        align-items: flex-start; /* Align items at the top */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav a:hover {
+        color: var(--accent-color);
+      }
+
+      .left {
+        flex: 1;
+        position: relative;
+      }
+
+      .left img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        max-width: 500px;
+        border-radius: 10px;
+        transition: transform 0.6s ease, box-shadow 0.6s ease;
+      }
+
+      .left img:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .right {
+        flex: 2;
+        padding-left: 40px;
+        animation: fadeInRight 1.5s ease;
+      }
+
+      .right h1,
+      .right h3 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: var(--accent-color);
+      }
+
+      .right p,
+      .right ul {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .right ul {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .right .highlight {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        display: inline-block;
+        font-weight: 500;
+        margin-top: 20px;
+      }
+
+      .right p {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      /* Keyframes for text animations */
+      @keyframes fadeInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/home">Home</a>
+      <a href="/aboutme">About Me</a>
+      <a href="/projects">Projects</a>
+      <a href="/achievement">Achievement</a>
+      <a href="/blogs">Blogs</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="container">
+      <!-- Left side: Large image -->
+      <div class="left">
+        <img src="assets/neel_image.png" alt="About Me Image" />
+      </div>
+
+      <!-- Right side: Description -->
+      <div class="right">
+        <h1>About Me</h1>
+        <p>
+          Hi there! I'm <strong>Neel</strong>, a passionate developer with a
+          strong focus on <em>AI</em> and <em>geospatial imaging</em>. My goal
+          is to bring innovative solutions to life, especially in the field of
+          AI-driven applications that can make a real impact on the world.
+        </p>
+        <p>
+          From building robust healthcare systems to creating AI models for
+          complex data, my expertise spans a wide array of technology stacks. I
+          have always believed in leveraging the power of artificial
+          intelligence to solve real-world challenges.
+        </p>
+        <p>
+          When I'm not coding, I enjoy diving into the latest research papers,
+          exploring new algorithms, and expanding my knowledge on the
+          ever-evolving field of AI. I also love working in dynamic
+          environments, collaborating with like-minded individuals to create
+          cutting-edge solutions.
+        </p>
+        <p class="highlight">Let's innovate together!</p>
+
+        <h1>Noteworthy Achievements</h1>
+        <ul>
+          <li>
+            Developed an intelligent healthcare system utilizing deep learning
+            models for early disease detection and personalized treatment
+            recommendations.
+          </li>
+          <li>
+            Created Democratic Net, a platform to counter misinformation using
+            advanced deep learning models, achieving a top-3 accuracy of 72.3%.
+          </li>
+          <li>
+            Selected as one of the top 15 teams for the International Nvidia
+            OpenACC Hackathon at IISc., Bangalore.
+          </li>
+          <li>Secured a top 5% rank in the NPTEL IIT Kharagpur DBMS exam.</li>
+        </ul>
+        <h3>Skills and Expertise</h3>
+        <ul>
+          <li>
+            Machine Learning & Deep Learning: Proficient in developing and
+            implementing models for various applications.
+          </li>
+          <li>
+            Cloud Platforms: Skilled in utilizing platforms like Azure for
+            scalable and efficient AI solutions.
+          </li>
+          <li>
+            Computer Vision & NLP: Expertise in image and text analysis,
+            enhancing the capabilities of AI systems.
+          </li>
+          <li>
+            Reinforcement Learning: Applying RL techniques to create intelligent
+            and adaptive systems.
+          </li>
+          <li>
+            Probabilistic Modeling: Leveraging statistical methods to handle
+            uncertainty in AI applications.
+          </li>
+          <li>
+            Research & Development: Leading projects aimed at advancing AI
+            technologies and their practical applications.
+          </li>
+        </ul>
+        <h1>Passion and Vision</h1>
+        <p>
+          I am driven by a passion for innovation and a vision to harness the
+          power of AI to create solutions that have a meaningful and lasting
+          impact. Whether it's through improving healthcare outcomes, combating
+          misinformation, or exploring new frontiers in AI, I am dedicated to
+          making a positive difference. I look forward to collaborating with
+          like-minded individuals and organizations to push the boundaries of
+          what AI can achieve.
+        </p>
+        <h1>Work Experience</h1>
+        <ul>
+          <li>May 2024 - Jun 2024: AI Engineer at Aviato Consulting</li>
+          <li>
+            Mar 2023 - Jun 2023: AL/ML Developer at Charusat Learning And
+            Development Club
+          </li>
+        </ul>
+        <h1>Education</h1>
+        <p>
+          September ' 2022 - September ' 2026 (Expected): Bachelors of
+          Artificial Intelligence and Machine Learning at Charotar University of
+          Science and Technology
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

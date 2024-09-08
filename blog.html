@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav a:hover {
+        color: var(--accent-color);
+      }
+      .blog-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: var(--accent-color);
+      }
+      .blog-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+      .content {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .blog-text {
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+      .highlight {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .btn-back {
+        display: inline-block;
+        margin-top: 30px;
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+      .btn-back:hover {
+        background-color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+      <header class="blog-header">
+        <h1>Understanding JavaScript Closures</h1>
+        <p>By John Doe | Published on September 8, 2024</p>
+      </header>
+
+      <img
+        src="https://via.placeholder.com/1000x400"
+        alt="Blog Post Image"
+        class="blog-image"
+      />
+
+      <div class="content">
+        <p class="blog-text">
+          In JavaScript, closures are an important concept that often confuses
+          new developers. A closure is the combination of a function and the
+          lexical environment within which that function was declared. Closures
+          allow a function to access variables from an outer function, even
+          after the outer function has completed execution.
+        </p>
+
+        <p class="blog-text">
+          This ability to access the scope outside of the immediate function
+          makes closures extremely powerful and useful in many programming
+          scenarios. For example, closures can be used to create private
+          variables or functions. Here’s a simple example:
+        </p>
+
+        <div class="blog-text">
+          <pre class="highlight">
+function outerFunction() {
+  let outerVar = "I'm outside!";
+  
+  function innerFunction() {
+    console.log(outerVar); // "I'm outside!"
+  }
+  
+  return innerFunction;
+}
+          </pre>
+        </div>
+
+        <p class="blog-text">
+          In the example above, even after <code>outerFunction()</code> has
+          finished executing, the <code>innerFunction()</code> still has access
+          to the variable <code>outerVar</code> because of the closure.
+        </p>
+
+        <p class="blog-text">
+          Closures are extremely useful in scenarios where you want to maintain
+          state across function calls without polluting the global scope. They
+          can be seen in patterns such as the module pattern and in event
+          handlers where state is maintained between invocations.
+        </p>
+
+        <p class="blog-text">
+          Closures are a powerful feature of JavaScript, and understanding them
+          is key to mastering the language. Once you understand how they work,
+          you can use them to write more flexible and efficient code.
+        </p>
+
+        <a href="blog-list.html" class="btn-back">Back to Blog List</a>
+      </div>
+    </div>
+  </body>
+</html>
