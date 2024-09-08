@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leo Miranda - Frontend Developer</title>
+    <title>Neel Shah - AI Developer</title>
     <style>
       :root {
         --bg-color: #1a1a1a;
@@ -77,8 +77,8 @@
         gap: 15px;
       }
       .tech-icon {
-        width: 40px;
-        height: 40px;
+        width: 80px;
+        height: 80px;
         background-color: var(--highlight-color);
         border-radius: 8px;
         display: flex;
@@ -87,6 +87,9 @@
         font-weight: bold;
         font-size: 0.8em;
         transition: transform 0.2s ease;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
       }
       .tech-icon:hover {
         transform: scale(1.1);
@@ -121,72 +124,80 @@
   </head>
   <body>
     <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
+      <a href="/home.html">Home</a>
+      <a href="/aboutme.html">About Me</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/achievement.html">Achievement</a>
+      <a href="/blogs.html">Blogs</a>
+      <a href="/contact.html">Contact</a>
     </nav>
     <div class="container">
       <div class="card full-width">
         <h2>Who am I?</h2>
         <p>
-          Hello! I am a developer who really enjoys transforming ideas into
-          functional software that exceeds expectations. I like to be constantly
-          learning from other professionals, teams and communities to stay on
-          top of the latest industry trends. Being a developer is not just a job
-          for me; it is an activity that I absolutely appreciate all the time.
+          I am an Innovative AI Engineer with proven expertise in machine
+          learning and probabilistic modeling, tackling real‑world challenges
+          head‑on. Mastery of cutting‑edge AI concepts, from deep learning to
+          NLP and computer vision. Published researcher in healthcare AI,
+          currently leading two pioneering projects advancing the
+          state‑of‑the‑art. A 2x Hackathon Winner, including 1st place at the
+          DataQuest2024 Hackathon and 2nd runner‑up in another, demonstrating a
+          strong track record in competitive AI problem‑solving.
         </p>
       </div>
       <div class="card">
-        <h3 class="highlight">Frontend developer</h3>
+        <h3 class="highlight">AI Engineer | Data Scientist</h3>
       </div>
       <div class="card half-width">
         <h3>Technologies I have worked with</h3>
         <div class="tech-icons" id="techIcons"></div>
       </div>
       <div class="card">
-        <img
-          src="https://via.placeholder.com/120"
-          alt="Leo Miranda"
-          class="profile-img"
-        />
-        <h2>Leo Miranda</h2>
+        <img src="assets/neel.jpg" alt="Neel Shah" class="profile-img" />
+        <h2>Neel Shah</h2>
       </div>
       <div class="card">
-        <p class="quote">"I really like creating software solutions"</p>
+        <p class="quote">
+          “Be the visionary who passionately weaves technology into the fabric
+          of our future.”
+        </p>
       </div>
       <div class="card full-width">
         <h3>Education</h3>
+        <!-- <div class="education-item">
+          <span class="education-year">2022:</span> AI Engineer | Data Scientist
+        </div> -->
         <div class="education-item">
-          <span class="education-year">2022:</span> Full Stack Development
-          Immersive
-        </div>
-        <div class="education-item">
-          <span class="education-year">2018-2021:</span> Computer Engineering
+          <span class="education-year">2022-2025 (Pursuing):</span> Bachelors in
+          Artificial Intelligence and Machine Learning
         </div>
       </div>
     </div>
 
     <script>
       const techIcons = [
-        "JS",
-        "TS",
-        "V",
-        "React",
-        "Gatsby",
-        "Tailwind",
-        "Vue",
-        "Angular",
-        "UI",
-        "Figma",
-        "Electron",
-        "MongoDB",
+        "torch",
+        "tensorflow",
+        "azure",
+        "react",
+        "docker",
+        "keras",
+        "pandas",
+        "sklearn",
+        "opencv",
+        "node",
+        "flask",
+        "fastapi",
+        "neo4j",
+        "databricks",
       ];
 
       const techIconsContainer = document.getElementById("techIcons");
       techIcons.forEach((tech) => {
         const icon = document.createElement("div");
         icon.className = "tech-icon";
-        icon.textContent = tech;
+        icon.style.backgroundImage = `url(assets/${tech}.png)`;
         techIconsContainer.appendChild(icon);
       });
     </script>
