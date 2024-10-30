@@ -6,8 +6,8 @@
     <title>Neel Shah - AI Developer</title>
     <style>
       :root {
-        --bg-color: #1a1a1a;
-        --card-bg: #2a2a2a;
+        --bg-color: #ffffff;
+        --card-bg: rgba(26, 26, 26, 0.8);
         --text-color: #ffffff;
         --highlight-color: #00a8e8;
         --accent-color: #00a8e8;
@@ -79,7 +79,7 @@
       .tech-icon {
         width: 80px;
         height: 80px;
-        background-color: var(--card-bg);
+        background-color: #ffffff;
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -105,9 +105,10 @@
       h2,
       h3 {
         margin-top: 0;
-        color: var(--accent-color);
+        color: var(--text-color);
       }
       .quote {
+        font-weight: bold;
         font-style: italic;
         font-size: 1.2em;
         text-align: center;
@@ -118,7 +119,7 @@
       }
       .education-year {
         font-weight: bold;
-        color: var(--accent-color);
+        color: var(--text-color);
       }
     </style>
   </head>
@@ -128,11 +129,12 @@
       <a href="/home.html">Home</a>
       <a href="/aboutme.html">About Me</a>
       <a href="/projects.html">Projects</a>
-      <a href="/achievement.html">Achievement</a>
+      <a href="/achievement.html">Achievements</a>
       <a href="/blogs.html">Blogs</a>
+      <a href="/cv.html">Curriculum Vitae</a>
       <a href="/contact.html">Get in touch</a>
-    </nav>
-    <div class="container">
+  </nav>
+    <div class="container" style="padding-top: 40px">
       <div class="card full-width">
         <h2>Who am I?</h2>
         <p>
@@ -150,36 +152,33 @@
         <h3>Positions of Expertise</h3>
         <h3 class="highlight" style="margin-right: 10px">AI Engineer</h3>
         <h3 class="highlight" style="margin-right: 10px">Data Scientist</h3>
-        <h3 class="highlight" style="margin-right: 10px">
-          Full-Stack Developer
-        </h3>
         <h3 class="highlight" style="margin-right: 10px">Backend Developer</h3>
+        <h3 class="highlight" style="margin-right: 10px">Full-Stack Developer</h3>
       </div>
       <div class="card half-width">
         <h3>Technologies I have worked with</h3>
         <div class="tech-icons" id="techIcons"></div>
       </div>
-      <div class="card">
+      <!-- <div class="card">
         <img src="assets/neel.jpg" alt="Neel Shah" class="profile-img" />
         <h2>Neel Shah</h2>
-      </div>
-      <div class="card">
+      </div> -->
+      <div class="card full-width">
         <p class="quote">
           “Be the visionary who passionately weaves technology into the fabric
           of our future.”
         </p>
       </div>
-      <div class="card full-width">
+
+      <!-- <div class="card full-width">
         <h3>Education</h3>
-        <!-- <div class="education-item">
-          <span class="education-year">2022:</span> AI Engineer | Data Scientist
-        </div> -->
+
         <div class="education-item">
           <span class="education-year">2022-2025 (Pursuing):</span> Bachelors in
           Artificial Intelligence and Machine Learning
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script>
       const techIcons = [
@@ -203,7 +202,7 @@
       techIcons.forEach((tech) => {
         const icon = document.createElement("div");
         icon.className = "tech-icon";
-        icon.style.backgroundImage = `url(assets/${tech}.png)`;
+        icon.style.backgroundImage = `url(assets/home_logos/${tech}.png)`;
         techIconsContainer.appendChild(icon);
       });
     </script>

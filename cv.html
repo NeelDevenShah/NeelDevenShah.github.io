@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neel Shah - Blogs</title>
-
+    <title>Neel Shah - Curriculum Vitae</title>
     <style>
       :root {
         --bg-color: #ffffff;
@@ -31,7 +30,7 @@
       .card {
         background-color: var(--card-bg);
         border-radius: 10px;
-        padding: 20px;
+        padding: 25px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
@@ -72,78 +71,36 @@
         text-decoration: none;
         font-weight: 500;
         transition: background-color 0.3s ease;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
       }
       .btn:hover {
         background-color: var(--accent-color);
       }
-      .blog-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-      .blog-text {
-        margin-top: 15px;
-      }
     </style>
   </head>
-  <body>
+<body>
     <nav class="nav">
-      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
-      <a href="/home.html">Home</a>
-      <a href="/aboutme.html">About Me</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/achievement.html">Achievements</a>
-      <a href="/blogs.html">Blogs</a>
-      <a href="/cv.html">Curriculum Vitae</a>
-      <a href="/contact.html">Get in touch</a>
+        <span style="margin-right: auto"><strong>Neel Shah</strong></span>
+        <a href="/home.html">Home</a>
+        <a href="/aboutme.html">About Me</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/achievement.html">Achievements</a>
+        <a href="/blogs.html">Blogs</a>
+        <a href="/cv.html">Curriculum Vitae</a>
+        <a href="/contact.html">Get in touch</a>
     </nav>
 
     <h1 style="text-align: center; color: #005a80; padding-top: 20px">
-      My Blogs
+        My Curriculum Vitae
     </h1>
 
-    <div class="container" style="padding-top: 20px">
-      <div class="card">
-        <img
-          src="assets/blogs_images/aviato-summer.png"
-          alt="Blog Image"
-          class="blog-image"
+    <div style="display: flex; justify-content: center;padding-top: 40px">
+        <embed 
+            src="assets/cv_page/cv.pdf"
+            type="application/pdf"
+            width="40%"
+            height="650px"
         />
-        <h3 style="color: #ffffff">
-          A Summer of Innovation: AI Internship at Aviato Consulting
-        </h3>
-        <p class="blog-text">
-          Detailed blog post about my extraordinary experience at Aviato, filled
-          with cutting-edge AI projects, amazing teamwork, and invaluable
-          learning experiences. I'm grateful for the opportunity to have
-          contributed to innovative solutions for our clients.
-        </p>
-        <a
-          href="https://medium.com/@neeldevenshah/a-summer-of-innovation-ai-internship-at-aviato-consulting-994946a8b8e8"
-          class="btn"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Read More</a
-        >
-      </div>
-
-      <!-- <div class="card">
-        <img
-          src="https://via.placeholder.com/300x200"
-          alt="Blog Image"
-          class="blog-image"
-        />
-        <h3 style="color: #ffffff">Why React is So Popular</h3>
-        <p class="blog-text">
-          A deep dive into why React has become one of the most used frontend
-          libraries in web development.
-        </p>
-        <a href="#" class="btn">Read More</a>
-      </div> -->
     </div>
+</body>
   </body>
 </html>
