@@ -41,16 +41,63 @@
         backdrop-filter: blur(5px);
         z-index: 1000;
       }
-      .nav a {
+      
+      .burger {
+        display: none;
+        cursor: pointer;
+      }
+      
+      .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: #ffffff;
+        margin: 5px;
+        transition: 0.3s;
+      }
+      
+      .nav-links {
+        display: flex;
+      }
+      
+      .nav-links a {
         color: #ffffff;
         text-decoration: none;
         margin-left: 20px;
         font-weight: 500;
         transition: color 0.3s ease;
       }
-      .nav a:hover {
+      
+      .nav-links a:hover {
         color: var(--accent-color);
       }
+      
+      /* Responsive styles */
+      @media only screen and (max-width: 600px) {
+        .nav {
+          justify-content: space-between;
+        }
+      
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: rgba(26, 26, 26, 0.9);
+          width: 100%;
+          text-align: center;
+          padding: 20px 0;
+        }
+      
+        .nav-links.active {
+          display: flex;
+        }
+      
+        .burger {
+          display: block;
+        }
+      }
+      
 
       .left {
         flex: 1;
@@ -133,22 +180,55 @@
           transform: scale(1);
         }
       }
+
+      /* Responsive styles */
+      @media only screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          padding: 20px;
+        }
+
+        .left img {
+          max-width: 100%;
+        }
+
+        .right {
+          padding-left: 0;
+          margin-top: 20px;
+        }
+      }
     </style>
   </head>
   <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+    
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
     <nav class="nav">
-      <span style="margin-right: auto; color: #ffffff"
-        ><strong>Neel Shah</strong></span
-      >
-      <a href="/home.html">Home</a>
-      <a href="/aboutme.html">About Me</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/achievement.html">Achievements</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/blogs.html">Blogs</a>
-      <a href="/cv.html">Curriculum Vitae</a>
-      <a href="/contact.html">Get in touch</a>
+      <span style="margin-right: auto; color: #ffffff"><strong>Neel Shah</strong></span>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links">
+        <a href="/home.html">Home</a>
+        <a href="/aboutme.html">About Me</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/achievement.html">Achievements</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/blogs.html">Blogs</a>
+        <a href="/cv.html">Curriculum Vitae</a>
+        <a href="/contact.html">Get in touch</a>
+      </div>
     </nav>
+
     <div class="container">
       <!-- Left side: Large image -->
       <div class="left">
@@ -241,11 +321,13 @@
             Development Club
           </li>
         </ul>
+        <p></p>
         <h1>Education</h1>
-        <p>
-          September ' 2022 - September ' 2026 (Expected): Bachelors of
+        <ul>
+          <li>September ' 2022 - September ' 2026 (Expected): Bachelors of
           Artificial Intelligence and Machine Learning at Charotar University of
-          Science and Technology
+          Science and Technology</li>
+        </ul>
         </p>
       </div>
     </div>
