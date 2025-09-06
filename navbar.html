@@ -1,98 +1,98 @@
 <style>
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  padding: 0 32px;
-  min-height: 64px;
-}
-.nav span {
-  margin-right: auto;
-  color: #005a80;
-  font-size: 1.3rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.nav-links {
-  display: flex;
-  gap: 24px;
-  transition: right 0.3s;
-}
-.nav-links a {
-  color: #005a80;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-  background: transparent;
-}
-.nav-links a:hover {
-  background: #f2f8fc;
-  color: #003d56;
-}
-.burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: 16px;
-}
-.burger div {
-  width: 28px;
-  height: 3px;
-  background: #005a80;
-  margin: 5px 0;
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-@media (max-width: 900px) {
   .nav {
-    padding: 0 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    min-height: 64px;
+  }
+  .nav span {
+    margin-right: auto;
+    color: #005a80;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   .nav-links {
-    position: fixed;
-    top: 70px;
-    right: -100vw;
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    border-radius: 10px 0 0 10px;
-    flex-direction: column;
-    gap: 0;
-    width: 220px;
-    padding: 24px 0;
+    display: flex;
+    gap: 24px;
     transition: right 0.3s;
-    z-index: 99;
-  }
-  .nav-links.active {
-    right: 0;
   }
   .nav-links a {
-    padding: 16px 32px;
-    font-size: 1.1rem;
-    border-radius: 0;
-    border-bottom: 1px solid #eee;
     color: #005a80;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
     background: transparent;
   }
-  .burger {
-    display: flex;
+  .nav-links a:hover {
+    background: #f2f8fc;
+    color: #003d56;
   }
-}
-.burger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.burger.active div:nth-child(2) {
-  opacity: 0;
-}
-.burger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 16px;
+  }
+  .burger div {
+    width: 28px;
+    height: 3px;
+    background: #005a80;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  @media (max-width: 900px) {
+    .nav {
+      padding: 0 12px;
+    }
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      right: -100vw;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      border-radius: 10px 0 0 10px;
+      flex-direction: column;
+      gap: 0;
+      width: 220px;
+      padding: 24px 0;
+      transition: right 0.3s;
+      z-index: 99;
+    }
+    .nav-links.active {
+      right: 0;
+    }
+    .nav-links a {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      border-radius: 0;
+      border-bottom: 1px solid #eee;
+      color: #005a80;
+      background: transparent;
+    }
+    .burger {
+      display: flex;
+    }
+  }
+  .burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 </style>
 <nav class="nav">
   <span>Neel Shah</span>
@@ -105,27 +105,27 @@
     <a href="/home.html">Home</a>
     <a href="/aboutme.html">About Me</a>
     <a href="/projects.html">Projects</a>
+    <a href="/blogs.html">Blogs</a>
     <a href="/linkedin.html">LinkedIn</a>
     <a href="/publications.html">Publications</a>
-    <a href="/blogs.html">Blogs</a>
     <a href="/cv.html">Curriculum Vitae</a>
     <a href="/contact.html">Get in touch</a>
   </div>
 </nav>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const burger = document.getElementById("burger");
-  const navLinks = document.getElementById("navLinks");
-  burger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    burger.classList.toggle("active");
-  });
-  // Close menu on link click (mobile)
-  navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-      burger.classList.remove("active");
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      burger.classList.toggle("active");
+    });
+    // Close menu on link click (mobile)
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        burger.classList.remove("active");
+      });
     });
   });
-});
 </script>
