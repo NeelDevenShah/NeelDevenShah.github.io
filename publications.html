@@ -7,10 +7,10 @@
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: rgba(26, 26, 26, 0.8);
-        --text-color: #ffffff;
+        --card-bg: #fff;
+        --text-color: #222;
         --highlight-color: #005a80;
-        --accent-color: #00a8e8;
+        --accent-color: #005a80;
       }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -132,6 +132,17 @@
           grid-template-columns: 1fr;
         }
       }
+
+      .container, .card, .publication, .contact-info {
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
+
+      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
+        color: #222;
+      }
     </style>
   </head>
   <body>
@@ -151,7 +162,7 @@
 
     <div class="container" style="padding-top: 40px">
       <!-- <div class="card">
-        <h3 style="color: #ffffff">MediPriority</h3>
+        <h3 style="color: #222">MediPriority</h3>
         <p>
           MediPriority is an AI-driven healthcare management system designed to
           streamline the patient care journey from pre-consultation to
@@ -172,7 +183,7 @@
       </div> -->
 
       <div class="card">
-        <h3 style="color: #ffffff">
+        <h3 style="color: #222">
           Machine Learning–Enabled Digital Twins for Diagnostic and Therapeutic
           Purposes
         </h3>
@@ -209,7 +220,7 @@
       </div>
 
       <div class="card">
-        <h3 style="color: #ffffff">
+        <h3 style="color: #222">
           The Future of Manufacturing with AI and Data Analytics
         </h3>
         <p>
@@ -245,7 +256,7 @@
       </div>
 
       <div class="card">
-        <h3 style="color: #ffffff">
+        <h3 style="color: #222">
           Future of Large Language Models and Digital Twins in Precision
           Healthcare: A Symmetric Literature Review
         </h3>

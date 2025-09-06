@@ -7,11 +7,10 @@
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: #2a2a2a;
-        --text-color: #000000;
+        --card-bg: #fff;
+        --text-color: #222;
         --highlight-color: #005a80;
         --accent-color: #005a80;
-        --hover-color: #00a8e8;
       }
 
       body {
@@ -29,6 +28,10 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 40px;
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       }
 
       .nav {
@@ -196,6 +199,24 @@
           padding-left: 0;
           margin-top: 20px;
         }
+      }
+
+      .container, .card, .publication, .contact-info {
+        background: #fff;
+        color: #222;
+      }
+
+      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
+        color: #222;
+      }
+
+      h2, h3 {
+        color: #005a80;
+      }
+
+      .btn, .btn-read-more {
+        background-color: #005a80;
+        color: #fff;
       }
     </style>
   </head>

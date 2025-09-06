@@ -7,10 +7,10 @@
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: rgba(26, 26, 26, 0.8);
-        --text-color: #ffffff;
+        --card-bg: #fff;
+        --text-color: #222;
         --highlight-color: #005a80;
-        --accent-color: #00a8e8;
+        --accent-color: #005a80;
       }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -19,6 +19,15 @@
         margin: 0;
         padding: 20px;
         line-height: 1.6;
+      }
+      .container, .card, .publication, .contact-info {
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
+      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
+        color: #222;
       }
       .container {
         display: grid;
@@ -110,14 +119,9 @@
         margin-top: 0;
         color: var(--accent-color);
       }
-      .btn {
-        background-color: var(--highlight-color);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
+      .btn, .btn-read-more {
+        background-color: #005a80;
+        color: #fff;
       }
       .btn:hover {
         background-color: var(--accent-color);
