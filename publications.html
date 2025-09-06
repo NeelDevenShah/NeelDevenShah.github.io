@@ -135,35 +135,15 @@
     </style>
   </head>
   <body>
+    <div id="navbar"></div>
+
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
-
-        burger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
+      fetch('/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
         });
-      });
     </script>
-
-    <nav class="nav">
-      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-links">
-        <a href="/home.html">Home</a>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <!-- <a href="/achievement.html">Achievements</a> -->
-        <a href="/publications.html">Publications</a>
-        <a href="/blogs.html">Blogs</a>
-        <a href="/cv.html">Curriculum Vitae</a>
-        <a href="/contact.html">Get in touch</a>
-      </div>
-    </nav>
 
     <h1 style="text-align: center; color: #005a80; padding-top: 20px">
       My Publications

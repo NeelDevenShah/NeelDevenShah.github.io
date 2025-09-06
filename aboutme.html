@@ -200,6 +200,14 @@
     </style>
   </head>
   <body>
+    <div id="navbar"></div>
+    <script>
+      fetch('/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+        });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const burger = document.querySelector(".burger");
@@ -210,24 +218,6 @@
         });
       });
     </script>
-    <nav class="nav">
-      <span style="margin-right: auto; color: #ffffff"><strong>Neel Shah</strong></span>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-links">
-        <a href="/home.html">Home</a>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <!-- <a href="/achievement.html">Achievements</a> -->
-        <a href="/publications.html">Publications</a>
-        <a href="/blogs.html">Blogs</a>
-        <a href="/cv.html">Curriculum Vitae</a>
-        <a href="/contact.html">Get in touch</a>
-      </div>
-    </nav>
 
     <div class="container">
       <!-- Left side: Large image -->

@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neel Shah - Blogs</title>
-
+    <title>Neel Shah - Medium Blogs</title>
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: rgba(26, 26, 26, 0.8);
-        --text-color: #ffffff;
-        --highlight-color: #005a80;
+        --text-color: #222;
         --accent-color: #00a8e8;
       }
       body {
@@ -20,24 +17,6 @@
         margin: 0;
         padding: 20px;
         line-height: 1.6;
-      }
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        max-width: 1500px;
-        margin: 0 auto;
-      }
-      .card {
-        background-color: var(--card-bg);
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       }
       .nav {
         display: flex;
@@ -49,12 +28,10 @@
         backdrop-filter: blur(5px);
         z-index: 1000;
       }
-
       .burger {
         display: none;
         cursor: pointer;
       }
-
       .burger div {
         width: 25px;
         height: 3px;
@@ -62,11 +39,9 @@
         margin: 5px;
         transition: 0.3s;
       }
-
       .nav-links {
         display: flex;
       }
-
       .nav-links a {
         color: var(--text-color);
         text-decoration: none;
@@ -74,17 +49,13 @@
         font-weight: 500;
         transition: color 0.3s ease;
       }
-
       .nav-links a:hover {
         color: var(--accent-color);
       }
-
-      /* Responsive styles */
       @media only screen and (max-width: 600px) {
         .nav {
           justify-content: space-between;
         }
-
         .nav-links {
           display: none;
           flex-direction: column;
@@ -96,137 +67,98 @@
           text-align: center;
           padding: 20px 0;
         }
-
         .nav-links.active {
           display: flex;
         }
-
         .burger {
           display: block;
         }
       }
-
-      h2,
-      h3 {
-        margin-top: 0;
-        color: var(--accent-color);
-      }
-      .btn {
-        background-color: var(--highlight-color);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .btn:hover {
-        background-color: var(--accent-color);
-      }
-      .blog-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
+      .medium-embed {
+        margin-top: 60px;
+        margin-right: 60px;
+        margin-left: 60px;
+        min-height: 600px;
         border-radius: 10px;
-      }
-      .blog-text {
-        margin-top: 15px;
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 768px) {
-        .container {
-          grid-template-columns: 1fr;
-        }
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        background: #fff;
       }
     </style>
   </head>
   <body>
+    <div id="navbar"></div>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
-
-        burger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
+      fetch('/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
         });
-      });
     </script>
-
-    <nav class="nav">
-      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-links">
-        <a href="/home.html">Home</a>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <!-- <a href="/achievement.html">Achievements</a> -->
-        <a href="/publications.html">Publications</a>
-        <a href="/blogs.html">Blogs</a>
-        <a href="/cv.html">Curriculum Vitae</a>
-        <a href="/contact.html">Get in touch</a>
-      </div>
-    </nav>
-
-    <h1 style="text-align: center; color: #005a80; padding-top: 20px">
-      My Blogs
-    </h1>
-
-    <div class="container" style="padding-top: 20px">
-      <div class="card">
-        <img
-          src="assets/blogs_images/aviato-summer.png"
-          alt="Blog Image"
-          class="blog-image"
-        />
-        <h3 style="color: #ffffff">
-          A Summer of Innovation: AI Internship at Aviato Consulting
-        </h3>
-        <p class="blog-text">
-          Detailed blog post about my extraordinary experience at Aviato, filled
-          with cutting-edge AI projects, amazing teamwork, and invaluable
-          learning experiences. I'm grateful for the opportunity to have
-          contributed to innovative solutions for our clients.
-        </p>
-        <a
-          href="https://medium.com/@neeldevenshah/a-summer-of-innovation-ai-internship-at-aviato-consulting-994946a8b8e8"
-          class="btn"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Read More</a
-        >
-      </div>
-
-      <div class="card">
-        <img
-          src="assets/blogs_images/dvc.png"
-          alt="Blog Image"
-          class="blog-image"
-        />
-        <h3 style="color: #ffffff">
-          Why Git LFS Is Not Good Practice for AI Model Weights and Why You
-          Should Use DVC Instead
-        </h3>
-        <p class="blog-text">
-          Dive into why Git LFS is not the best practice for AI projects and why
-          tools like DVC (Data Version Control) are transforming how we manage
-          model weights, datasets, and pipelines.
-        </p>
-        <br />
-        <a
-          href="https://medium.com/@neeldevenshah/why-git-lfs-is-not-good-practice-for-ai-model-weights-and-why-you-should-use-dvc-instead-demo-with-3903a7ae68f5"
-          class="btn"
-          target="_blank"
-          >Read More</a
-        >
-      </div>
+    <div class="medium-embed" id="medium-masonry">
+      <h1 style="text-align: center; color: #005a80; margin-bottom: 40px">
+        Latest Blogs
+      </h1>
+      <!-- Medium posts will be loaded here -->
     </div>
+    <script>
+      async function fetchMediumRSS() {
+        const rssUrl = "https://medium.com/feed/@neeldevenshah";
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (!data.items) return;
+          const container = document.getElementById("medium-masonry");
+          container.innerHTML = '<h1 style="text-align:center;color:#005a80;margin-bottom:40px;">Latest Blogs</h1>';
+
+          // Masonry grid for posts
+          const grid = document.createElement("div");
+          grid.style.display = "grid";
+          grid.style.gridTemplateColumns = "repeat(auto-fit, minmax(320px, 1fr))";
+          grid.style.gap = "30px";
+
+          data.items.forEach((post) => {
+            const card = document.createElement("div");
+            card.style.background = "#fff";
+            card.style.borderRadius = "10px";
+            card.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)";
+            card.style.padding = "24px";
+            card.style.display = "flex";
+            card.style.flexDirection = "column";
+            card.style.justifyContent = "space-between";
+            card.style.minHeight = "320px";
+
+            // Extract image from post content
+            let imgSrc = "";
+            const imgMatch = post.description.match(/<img[^>]+src\s*=\s*['\"]([^'\"]+)['\"]/);
+            if (imgMatch && imgMatch[1]) {
+              imgSrc = imgMatch[1];
+            }
+
+            card.innerHTML = `
+              ${imgSrc ? `<img src='${imgSrc}' alt='${post.title}' style='width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;'>` : ""}
+              <h2 style="font-size:1.2em;margin-bottom:10px;color:#005a80;">${post.title}</h2>
+              <div style="margin-bottom:12px;color:#444;font-size:0.98em;">${post.description.replace(/<[^>]+>/g, "").slice(0, 180)}...</div>
+              <a href="${post.link}" target="_blank" style="background:#00a8e8;color:#fff;padding:10px 15px;border-radius:5px;text-decoration:none;text-align:center;font-weight:500;">Read on Medium</a>
+            `;
+            grid.appendChild(card);
+          });
+          container.appendChild(grid);
+
+          // Add 'See more blogs' button at the end
+          const moreDiv = document.createElement("div");
+          moreDiv.style.textAlign = "center";
+          moreDiv.style.margin = "40px 0 0 0";
+          moreDiv.innerHTML = `
+            <a href="https://medium.com/@neeldevenshah" target="_blank" style="background:#005a80;color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-size:1.1em;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.08);display:inline-block;">See more blogs on Medium</a>
+          `;
+          container.appendChild(moreDiv);
+        } catch (err) {
+          document.getElementById("medium-masonry").innerHTML = "<p>Unable to load Medium posts.</p>";
+        }
+      }
+      fetchMediumRSS();
+    </script>
   </body>
 </html>
