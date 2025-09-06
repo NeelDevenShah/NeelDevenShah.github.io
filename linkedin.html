@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neel Shah - Achievements</title>
+    <style>
+      :root {
+        --bg-color: #ffffff;
+        --card-bg: rgba(26, 26, 26, 0.8);
+        --text-color: #ffffff;
+        --highlight-color: #005a80;
+        --accent-color: #00a8e8;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+      }
+
+      .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px;
+        transition: 0.3s;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Responsive styles */
+      @media only screen and (max-width: 600px) {
+        .nav {
+          justify-content: space-between;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: rgba(26, 26, 26, 0.9);
+          width: 100%;
+          text-align: center;
+          padding: 20px 0;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .burger {
+          display: block;
+        }
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--accent-color);
+        margin-bottom: 40px;
+      }
+      .publication {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .publication:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .publication img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+      /* Responsive Styles */
+      @media only screen and (max-width: 600px) {
+        .publication img {
+          display: none;
+        }
+      }
+      .publication-title {
+        font-size: 1.4em;
+        color: var(--text-color);
+        margin-bottom: 10px;
+      }
+      .publication-desc {
+        margin-bottom: 15px;
+      }
+      .btn-read-more {
+        background-color: var(--highlight-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .btn-read-more:hover {
+        background-color: var(--accent-color);
+      }
+
+      /* Responsive Styles */
+      @media only screen and (max-width: 600px) {
+        .container {
+          padding: 10px;
+        }
+        .publication img {
+          height: auto;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
+    <nav class="nav">
+      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links">
+        <a href="/home.html">Home</a>
+        <a href="/aboutme.html">About Me</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/achievement.html">Achievements</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/blogs.html">Blogs</a>
+        <a href="/cv.html">Curriculum Vitae</a>
+        <a href="/contact.html">Get in touch</a>
+      </div>
+    </nav>
+
+    <div
+      class="sk-ww-linkedin-profile-post"
+      data-embed-id="25596288"
+      style="margin-top: 60px; margin-right: 20x; margin-left: 20px"
+    ></div>
+    <script
+      src="https://widgets.sociablekit.com/linkedin-profile-posts/widget.js"
+      defer
+    ></script>
+  </body>
+</html>
