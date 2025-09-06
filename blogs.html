@@ -86,19 +86,30 @@
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         background: #fff;
       }
-      .container, .card, .publication, .contact-info {
+      .container,
+      .card,
+      .publication,
+      .contact-info {
         background: #fff;
         color: #222;
         border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       }
-      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
+      .card h3,
+      .card p,
+      .publication-title,
+      .publication-desc,
+      .contact-info h1,
+      .contact-info p,
+      .contact-info a {
         color: #222;
       }
-      h2, h3 {
+      h2,
+      h3 {
         color: #005a80;
       }
-      .btn, .btn-read-more {
+      .btn,
+      .btn-read-more {
         background-color: #005a80;
         color: #fff;
       }
@@ -107,7 +118,8 @@
       .cert-item,
       .publication,
       .contact-info {
-        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12), 0 1.5px 6px rgba(0, 90, 128, 0.08);
+        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12),
+          0 1.5px 6px rgba(0, 90, 128, 0.08);
         border-radius: 16px;
         margin: 24px;
         padding: 24px;
@@ -120,7 +132,8 @@
       .cert-item:hover,
       .publication:hover,
       .contact-info:hover {
-        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18), 0 3px 12px rgba(0, 90, 128, 0.12);
+        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18),
+          0 3px 12px rgba(0, 90, 128, 0.12);
         transform: translateY(-4px) scale(1.03);
       }
     </style>
@@ -128,10 +141,10 @@
   <body>
     <div id="navbar"></div>
     <script>
-      fetch('/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('navbar').innerHTML = data;
+      fetch("/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
         });
     </script>
     <div class="medium-embed" id="medium-masonry">
@@ -143,18 +156,20 @@
     <script>
       async function fetchMediumRSS() {
         const rssUrl = "https://medium.com/feed/@neeldevenshah";
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+          rssUrl
+        )}`;
         try {
           const response = await fetch(apiUrl);
           const data = await response.json();
           if (!data.items) return;
           const container = document.getElementById("medium-masonry");
-          container.innerHTML = '<h1 style="text-align:center;color:#005a80;margin-bottom:40px;">Latest Blogs</h1>';
 
           // Masonry grid for posts
           const grid = document.createElement("div");
           grid.style.display = "grid";
-          grid.style.gridTemplateColumns = "repeat(auto-fit, minmax(320px, 1fr))";
+          grid.style.gridTemplateColumns =
+            "repeat(auto-fit, minmax(320px, 1fr))";
           grid.style.gap = "30px";
 
           data.items.forEach((post) => {
@@ -170,16 +185,28 @@
 
             // Extract image from post content
             let imgSrc = "";
-            const imgMatch = post.description.match(/<img[^>]+src\s*=\s*['\"]([^'\"]+)['\"]/);
+            const imgMatch = post.description.match(
+              /<img[^>]+src\s*=\s*['\"]([^'\"]+)['\"]/
+            );
             if (imgMatch && imgMatch[1]) {
               imgSrc = imgMatch[1];
             }
 
             card.innerHTML = `
-              ${imgSrc ? `<img src='${imgSrc}' alt='${post.title}' style='width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;'>` : ""}
-              <h2 style="font-size:1.2em;margin-bottom:10px;color:#005a80;">${post.title}</h2>
-              <div style="margin-bottom:12px;color:#444;font-size:0.98em;">${post.description.replace(/<[^>]+>/g, "").slice(0, 180)}...</div>
-              <a href="${post.link}" target="_blank" style="background:#005a80;color:#fff;padding:10px 15px;border-radius:5px;text-decoration:none;text-align:center;font-weight:500;">Read on Medium</a>
+              ${
+                imgSrc
+                  ? `<img src='${imgSrc}' alt='${post.title}' style='width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;'>`
+                  : ""
+              }
+              <h2 style="font-size:1.2em;margin-bottom:10px;color:#005a80;">${
+                post.title
+              }</h2>
+              <div style="margin-bottom:12px;color:#444;font-size:0.98em;">${post.description
+                .replace(/<[^>]+>/g, "")
+                .slice(0, 180)}...</div>
+              <a href="${
+                post.link
+              }" target="_blank" style="background:#005a80;color:#fff;padding:10px 15px;border-radius:5px;text-decoration:none;text-align:center;font-weight:500;">Read on Medium</a>
             `;
             grid.appendChild(card);
           });
@@ -194,7 +221,8 @@
           `;
           container.appendChild(moreDiv);
         } catch (err) {
-          document.getElementById("medium-masonry").innerHTML = "<p>Unable to load Medium posts.</p>";
+          document.getElementById("medium-masonry").innerHTML =
+            "<p>Unable to load Medium posts.</p>";
         }
       }
       fetchMediumRSS();
