@@ -7,11 +7,10 @@
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: #2a2a2a;
-        --text-color: #000000;
+        --card-bg: #fff;
+        --text-color: #222;
         --highlight-color: #005a80;
         --accent-color: #005a80;
-        --hover-color: #00a8e8;
       }
 
       body {
@@ -25,10 +24,14 @@
 
       .container {
         display: flex;
-        align-items: flex-start; /* Align items at the top */
+        align-items: flex-start;
         max-width: 1200px;
         margin: 0 auto;
         padding: 40px;
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       }
 
       .nav {
@@ -41,12 +44,12 @@
         backdrop-filter: blur(5px);
         z-index: 1000;
       }
-      
+
       .burger {
         display: none;
         cursor: pointer;
       }
-      
+
       .burger div {
         width: 25px;
         height: 3px;
@@ -54,11 +57,11 @@
         margin: 5px;
         transition: 0.3s;
       }
-      
+
       .nav-links {
         display: flex;
       }
-      
+
       .nav-links a {
         color: #ffffff;
         text-decoration: none;
@@ -66,17 +69,16 @@
         font-weight: 500;
         transition: color 0.3s ease;
       }
-      
+
       .nav-links a:hover {
         color: var(--accent-color);
       }
-      
-      /* Responsive styles */
+
       @media only screen and (max-width: 600px) {
         .nav {
           justify-content: space-between;
         }
-      
+
         .nav-links {
           display: none;
           flex-direction: column;
@@ -88,16 +90,15 @@
           text-align: center;
           padding: 20px 0;
         }
-      
+
         .nav-links.active {
           display: flex;
         }
-      
+
         .burger {
           display: block;
         }
       }
-      
 
       .left {
         flex: 1;
@@ -106,7 +107,7 @@
 
       .left img {
         width: 100%;
-        height: auto; /* Maintain aspect ratio */
+        height: auto;
         max-width: 500px;
         border-radius: 10px;
         transition: transform 0.6s ease, box-shadow 0.6s ease;
@@ -157,7 +158,35 @@
         padding-right: 20px;
       }
 
-      /* Keyframes for text animations */
+      .certification-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+        margin: 20px;
+      }
+
+      .cert-item {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent-color);
+        font-size: 1em;
+      }
+
+      .project-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 25px;
+        margin: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .project-card h3 {
+        color: white;
+        margin-bottom: 10px;
+      }
+
       @keyframes fadeInRight {
         0% {
           opacity: 0;
@@ -181,7 +210,6 @@
         }
       }
 
-      /* Responsive styles */
       @media only screen and (max-width: 768px) {
         .container {
           flex-direction: column;
@@ -196,138 +224,256 @@
           padding-left: 0;
           margin-top: 20px;
         }
+
+        .certification-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .container,
+      .card,
+      .publication,
+      .contact-info {
+        background: #fff;
+        color: #222;
+      }
+
+      .card h3,
+      .card p,
+      .publication-title,
+      .publication-desc,
+      .contact-info h1,
+      .contact-info p,
+      .contact-info a {
+        color: #222;
+      }
+
+      h2,
+      h3 {
+        color: #005a80;
+      }
+
+      .btn,
+      .btn-read-more {
+        background-color: #005a80;
+        color: #fff;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 10px;
+      }
+
+      .stat-number {
+        font-size: 2.5em;
+        font-weight: bold;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 1.1em;
+        margin-top: 5px;
+      }
+
+      .card,
+      .project-card,
+      .cert-item,
+      .publication,
+      .contact-info {
+        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12), 0 1.5px 6px rgba(0, 90, 128, 0.08);
+        border-radius: 16px;
+        margin: 24px;
+        padding: 24px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+        position: relative;
+      }
+      .card:hover,
+      .project-card:hover,
+      .cert-item:hover,
+      .publication:hover,
+      .contact-info:hover {
+        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18), 0 3px 12px rgba(0, 90, 128, 0.12);
+        transform: translateY(-4px) scale(1.03);
       }
     </style>
   </head>
   <body>
+    <div id="navbar"></div>
+    <script>
+      fetch("/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const burger = document.querySelector(".burger");
         const navLinks = document.querySelector(".nav-links");
-    
+
         burger.addEventListener("click", () => {
           navLinks.classList.toggle("active");
         });
       });
     </script>
-    <nav class="nav">
-      <span style="margin-right: auto; color: #ffffff"><strong>Neel Shah</strong></span>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-links">
-        <a href="/home.html">Home</a>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <!-- <a href="/achievement.html">Achievements</a> -->
-        <a href="/publications.html">Publications</a>
-        <a href="/blogs.html">Blogs</a>
-        <a href="/cv.html">Curriculum Vitae</a>
-        <a href="/contact.html">Get in touch</a>
-      </div>
-    </nav>
 
     <div class="container">
-      <!-- Left side: Large image -->
       <div class="left">
         <img src="assets/about_page/neel_image.png" alt="About Me Image" />
       </div>
 
-      <!-- Right side: Description -->
       <div class="right">
         <h1>About Me</h1>
         <p>
-          Hi there! I'm <strong>Neel</strong>, a passionate developer with a
-          strong focus on <em>AI</em> and <em>geospatial imaging</em>. My goal
-          is to bring innovative solutions to life, especially in the field of
-          AI-driven applications that can make a real impact on the world.
+          Hi there! I'm <strong>Neel Shah</strong>, an innovative AI Engineer
+          with over 1 year of experience deploying AI systems in production environments. I have worked on a wide range of impactful projects, leveraging my expertise to design, plan, and deliver products from initial prototype to full-scale production. My skillset spans across <em>agentic systems</em>, <em>deep learning</em>, <em>computer vision</em>, and <em>NLP</em>, enabling me to transform ideas into robust, scalable solutions that drive real business value.
         </p>
         <p>
-          From building robust healthcare systems to creating AI models for
-          complex data, my expertise spans a wide array of technology stacks. I
-          have always believed in leveraging the power of artificial
-          intelligence to solve real-world challenges.
+          As a Microsoft Azure Certified Data Scientist Associate and 3X
+          Hackathon Winner, I'm passionate about transforming AI prototypes into
+          robust, scalable, production-ready systems that create real business
+          value. My journey spans from architecting comprehensive AI systems for
+          e-commerce platforms with 1M+ products to engineering multi-agent
+          frameworks for government applications with 99% concordance with
+          expert evaluators.
         </p>
         <p>
-          When I'm not coding, I enjoy diving into the latest research papers,
-          exploring new algorithms, and expanding my knowledge on the
-          ever-evolving field of AI. I also love working in dynamic
-          environments, collaborating with like-minded individuals to create
-          cutting-edge solutions.
+          Currently working at Neuramonks as an AI Engineer (promoted from
+          internship to full-time after 3 months), I've deployed cutting-edge
+          solutions including Qwen2.5 VL 72B models on-premise for enhanced
+          security compliance and architected AI-powered decision engines for
+          major international clients.
         </p>
-        <p class="highlight">Let's innovate together!</p>
+        <p class="highlight">
+          Let's innovate together and drive real-world impact through applied
+          AI!
+        </p>
 
-        <h1>Noteworthy Achievements</h1>
+        <h1>Professional Experience</h1>
         <ul>
           <li>
-            Developed an intelligent healthcare system utilizing deep learning
-            models for early disease detection and personalized treatment
-            recommendations.
+            <strong>Feb 2025 - Present:</strong> AI Engineer at Neuramonks
+            (Full-time, promoted from internship)
           </li>
           <li>
-            Created Democratic Net, a platform to counter misinformation using
-            advanced deep learning models, achieving a top-3 accuracy of 72.3%.
+            <strong>May 2024 - Jun 2024:</strong> AI Engineer (Internship) at
+            Aviato Consulting, Australia
           </li>
           <li>
-            Selected as one of the top 15 teams for the International Nvidia
-            OpenACC Hackathon at IISc., Bangalore.
+            <strong>May 2023 - Jun 2023:</strong> AI Developer at Charusat
+            Learning And Development Club
           </li>
-          <li>Secured a top 5% rank in the NPTEL IIT Kharagpur DBMS exam.</li>
         </ul>
-        <h3>Skills and Expertise</h3>
+
+        <h1>Notable Achievements</h1>
         <ul>
           <li>
-            Machine Learning & Deep Learning: Proficient in developing and
-            implementing models for various applications.
+            Secured <strong>64th place (Top 0.1%)</strong> out of 20,000+ teams
+            in Amazon ML Challenge 2024
           </li>
           <li>
-            Cloud Platforms: Skilled in utilizing platforms like Azure for
-            scalable and efficient AI solutions.
+            Won <strong>1st place</strong> in competition by Adani Institute of
+            Digital Technology Management
           </li>
           <li>
-            Computer Vision & NLP: Expertise in image and text analysis,
-            enhancing the capabilities of AI systems.
+            Achieved <strong>3rd position</strong> among 180 top-tier teams in
+            The Maverick Effect AI Challenge 2024
           </li>
           <li>
-            Reinforcement Learning: Applying RL techniques to create intelligent
-            and adaptive systems.
+            Secured <strong>8th place (Top 2%)</strong> in IndoML Datathon 2024
+            Phase 2 with travel grant to BITS Pilani
           </li>
           <li>
-            Probabilistic Modeling: Leveraging statistical methods to handle
-            uncertainty in AI applications.
+            Selected among <strong>top 11 teams</strong> for OpenACC Nvidia
+            Hackathon at IISc, Bangalore
           </li>
           <li>
-            Research & Development: Leading projects aimed at advancing AI
-            technologies and their practical applications.
+            Achieved <strong>Top 5% nationwide</strong> in DBMS course by IIT
+            Kharagpur via NPTEL
+          </li>
+          <li>
+            Recognized as <strong>NPTEL Discipline Star</strong> for completing
+            50+ weeks of IIT courses
           </li>
         </ul>
-        <h1>Passion and Vision</h1>
-        <p>
-          I am driven by a passion for innovation and a vision to harness the
-          power of AI to create solutions that have a meaningful and lasting
-          impact. Whether it's through improving healthcare outcomes, combating
-          misinformation, or exploring new frontiers in AI, I am dedicated to
-          making a positive difference. I look forward to collaborating with
-          like-minded individuals and organizations to push the boundaries of
-          what AI can achieve.
-        </p>
-        <h1>Work Experience</h1>
+
+        <h3>Technical Expertise</h3>
         <ul>
-          <li>May 2024 - Jun 2024: AI Engineer at Aviato Consulting</li>
           <li>
-            Mar 2023 - Jun 2023: AL/ML Developer at Charusat Learning And
-            Development Club
+            <strong>AI & ML:</strong> Deep Learning, Reinforcement Learning,
+            Computer Vision, NLP, Generative AI
+          </li>
+          <li>
+            <strong>Agentic Systems:</strong> CrewAI, LangGraph, LangChain, MCP
+            (Model Context Protocol)
+          </li>
+          <li>
+            <strong>Frameworks:</strong> PyTorch, TensorFlow, Keras, Hugging
+            Face, FastAPI, OpenCV
+          </li>
+          <li>
+            <strong>ML Architectures:</strong> Transformers, Mixture-of-Experts
+            (MoE), RoPE, PPO, DPO, RLHF
+          </li>
+          <li>
+            <strong>MLOps:</strong> Docker, MLflow, W&B, Apache Airflow, CI/CD,
+            VLLM
+          </li>
+          <li>
+            <strong>Cloud Platforms:</strong> Azure (Certified), AWS, GCP,
+            Databricks
           </li>
         </ul>
-        <p></p>
+
+        <h1>Certifications</h1>
+        <div class="certification-grid">
+          <div class="cert-item">
+            Microsoft Certified Azure Data Scientist Associate
+          </div>
+          <div class="cert-item">
+            Stanford University Machine Learning Specialization
+          </div>
+          <div class="cert-item">
+            Nvidia Fundamentals of Accelerated Computing with CUDA
+          </div>
+          <div class="cert-item">Hugging Face Deep Reinforcement Learning</div>
+          <div class="cert-item">DeepLearning.AI TensorFlow Developer</div>
+          <div class="cert-item">Neo4j Graph Data Science Certification</div>
+          <div class="cert-item">Oracle Certified Professional Java SE 6</div>
+          <div class="cert-item">RedHat Enterprise Linux 9 Fundamentals</div>
+        </div>
+
         <h1>Education</h1>
         <ul>
-          <li>September ' 2022 - September ' 2026 (Expected): Bachelors of
-          Artificial Intelligence and Machine Learning at Charotar University of
-          Science and Technology</li>
+          <li>
+            <strong>Sep 2022 - Apr 2026 (Expected):</strong> Bachelor of
+            Artificial Intelligence and Machine Learning<br />
+            Charotar University of Science and Technology, Gujarat, India<br />
+            <strong>CGPA: 9.6</strong>
+          </li>
         </ul>
+
+        <h1>Vision & Mission</h1>
+        <p>
+          As an infinite learner, I'm driven by a passion to harness the
+          transformative power of AI to create solutions with meaningful,
+          lasting impact. Whether it's revolutionizing healthcare outcomes,
+          combating misinformation through advanced deep learning, or pioneering
+          new frontiers in agentic AI systems, I'm committed to pushing the
+          boundaries of what artificial intelligence can achieve. My goal is to
+          bridge the gap between cutting-edge AI research and real-world
+          applications that solve complex global challenges.
         </p>
       </div>
     </div>

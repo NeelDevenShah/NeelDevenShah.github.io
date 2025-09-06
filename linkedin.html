@@ -20,17 +20,11 @@
         padding: 20px;
         line-height: 1.6;
       }
-      .container, .card, .publication, .contact-info {
-        background: #fff;
-        color: #222;
-        border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      }
       .container {
         max-width: 1000px;
         margin: 0 auto;
       }
-      
+
       .nav {
         display: flex;
         justify-content: flex-end;
@@ -41,12 +35,12 @@
         backdrop-filter: blur(5px);
         z-index: 1000;
       }
-      
+
       .burger {
         display: none;
         cursor: pointer;
       }
-      
+
       .burger div {
         width: 25px;
         height: 3px;
@@ -54,11 +48,11 @@
         margin: 5px;
         transition: 0.3s;
       }
-      
+
       .nav-links {
         display: flex;
       }
-      
+
       .nav-links a {
         color: var(--text-color);
         text-decoration: none;
@@ -66,17 +60,17 @@
         font-weight: 500;
         transition: color 0.3s ease;
       }
-      
+
       .nav-links a:hover {
         color: var(--accent-color);
       }
-      
+
       /* Responsive styles */
       @media only screen and (max-width: 600px) {
         .nav {
           justify-content: space-between;
         }
-      
+
         .nav-links {
           display: none;
           flex-direction: column;
@@ -88,16 +82,15 @@
           text-align: center;
           padding: 20px 0;
         }
-      
+
         .nav-links.active {
           display: flex;
         }
-      
+
         .burger {
           display: block;
         }
       }
-      
 
       h1 {
         text-align: center;
@@ -161,6 +154,12 @@
           width: 100%;
         }
       }
+      .container, .card, .publication, .contact-info {
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
       .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
         color: #222;
       }
@@ -203,80 +202,25 @@
           document.getElementById('navbar').innerHTML = data;
         });
     </script>
-    <h1 style="text-align: center; color: #005a80; padding-top: 20px">
-      My Achievements
-    </h1>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
 
-    <div class="container">
-      <div class="publication">
-        <img
-          src="assets/achievements_images/nvidia_hackathon.jpeg"
-          alt="AI-Driven Healthcare"
-          style="height: 500px; width: 950px; border-radius: 8px"
-        />
-        <h2 class="publication-title">
-          Got selected in the International NSM Open Hackathon, organized by NVIDIA, OpenACC, NSM, and NVIDIA at IISC Banglore among top-12 teams from India
-        </h2>
-        <p class="publication-desc">
-          The hackathon was an incredible experience that allowed me and my team to harness the power of high computational clusters and delve into the world of High-Performance Computing (HPC). Throughout the hackathon, we were challenged to apply HPC to real-world problems, and the experience was nothing short of eye-opening.
-        </p>
-        <a
-          href="https://www.linkedin.com/posts/neeldevenshah_nsmopenhackathon-nvidia-openacc-activity-7122129261116747776-mG6C?utm_source=share&utm_medium=member_desktop"
-          class="btn-read-more"
-          target="_blank"
-          >Read More</a
-        >
-      </div>
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
 
-      <div class="container">
-        <div class="publication">
-          <img
-            src="assets/achievements_images/maverick_effect.jpeg"
-            alt="AI-Driven Healthcare"
-            style="height: 500px; width: 950px; border-radius: 8px"
-          />
-          <h2 class="publication-title">
-            2nd Runner-Up position in The Maverick Effects AI Challenge! 🥉
-          </h2>
-          <p class="publication-desc"></p>
-            This journey has been nothing short of transformative. Alongside my incredible teammates Sneh Shah and Pankil Soni we pushed the boundaries of innovation and technical prowess. Inspired by Harish Mehta sir's 'The Maverick Effect', this challenge drove us to harness the power of AI to tackle real-world problems. Competing against brilliant minds from across Gujarat, we dove deep into innovation, stretching our skills to new heights.
-
-          </p>
-          <a
-            href="https://www.linkedin.com/posts/neeldevenshah_incredible-news-our-team-has-secured-activity-7228226129021554688-4noV?utm_source=share&utm_medium=member_desktop"
-            class="btn-read-more"
-            target="_blank"
-            >Read More</a
-          >
-        </div>
-
-
-        <div class="container">
-          <div class="publication">
-            <img
-              src="/assets/achievements_images/dataquest2024.jpeg"
-              alt="AI-Driven Healthcare"
-              style="height: 500px; width: 950px; border-radius: 8px"
-            />
-            <h2 class="publication-title">
-              First Place 🥇 at the DataQuest2024 Hackathon organized at Adani
-              Institute of Digital Technology Management, sponsored by MSBC Group!
-            </h2>
-            <p class="publication-desc">
-              It was an exhilarating experience competing alongside 120 brilliant
-              minds, all bringing innovative solutions to real-world challenges. The
-              energy, collaboration, and creativity we witnessed over these intense
-              hours were truly inspiring.
-            </p>
-            <a
-              href="https://www.linkedin.com/posts/neeldevenshah_dataquest2024-dataquest2024-hackathonwinners-activity-7237092847387107329-2-T0?utm_source=share&utm_medium=member_desktop"
-              class="btn-read-more"
-              target="_blank"
-              >Read More</a
-            >
-          </div>
-
-
-    </div>
+    <div
+      class="sk-ww-linkedin-profile-post"
+      data-embed-id="25596288"
+      style="margin-top: 60px; margin-right: 20x; margin-left: 20px"
+    ></div>
+    <script
+      src="https://widgets.sociablekit.com/linkedin-profile-posts/widget.js"
+      defer
+    ></script>
   </body>
 </html>

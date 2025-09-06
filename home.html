@@ -7,10 +7,10 @@
     <style>
       :root {
         --bg-color: #ffffff;
-        --card-bg: rgba(26, 26, 26, 0.8);
-        --text-color: #ffffff;
-        --highlight-color: #00a8e8;
-        --accent-color: #00a8e8;
+        --card-bg: #fff;
+        --text-color: #222;
+        --highlight-color: #005a80;
+        --accent-color: #005a80;
       }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -20,6 +20,12 @@
         padding: 20px;
         line-height: 1.6;
       }
+      .container, .card, .publication, .contact-info {
+        background: #fff;
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
       .container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -28,15 +34,15 @@
         margin: 0 auto;
       }
       .card {
-        background-color: var(--card-bg);
-        border-radius: 10px;
         padding: 25px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
+        color: #222;
       }
       .full-width {
         grid-column: span 3;
@@ -152,7 +158,7 @@
       h2,
       h3 {
         margin-top: 0;
-        color: var(--text-color);
+        color: #005a80;
       }
       .quote {
         font-weight: bold;
@@ -168,6 +174,49 @@
         font-weight: bold;
         color: var(--text-color);
       }
+      .card.positions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .position-title {
+        background: #005a80;
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1.1em;
+        box-shadow: 0 2px 8px rgba(0,90,128,0.08);
+        margin: 4px 0;
+        transition: background 0.2s;
+      }
+      .position-title:hover {
+        background: #003d56;
+      }
+      .card,
+      .project-card,
+      .cert-item,
+      .publication,
+      .contact-info {
+        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12), 0 1.5px 6px rgba(0, 90, 128, 0.08);
+        border-radius: 16px;
+        margin: 24px;
+        padding: 24px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+        position: relative;
+      }
+      .card:hover,
+      .project-card:hover,
+      .cert-item:hover,
+      .publication:hover,
+      .contact-info:hover {
+        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18), 0 3px 12px rgba(0, 90, 128, 0.12);
+        transform: translateY(-4px) scale(1.03);
+      }
     </style>
   </head>
   <body>
@@ -182,45 +231,27 @@
       });
     </script>
     
-    <nav class="nav">
-      <span style="margin-right: auto"><strong>Neel Shah</strong></span>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-links">
-        <a href="/home.html">Home</a>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <!-- <a href="/achievement.html">Achievements</a> -->
-        <a href="/publications.html">Publications</a>
-        <a href="/blogs.html">Blogs</a>
-        <a href="/cv.html">Curriculum Vitae</a>
-        <a href="/contact.html">Get in touch</a>
-      </div>
-    </nav>
+    <div id="navbar"></div>
+    <script>
+      fetch('/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+        });
+    </script>
     
     <div class="container" style="padding-top: 40px">
       <div class="card full-width">
         <h2>Who am I?</h2>
         <p>
-          I am an Innovative AI Engineer with proven expertise in machine
-          learning and probabilistic modeling, tackling real‑world challenges
-          head‑on. Mastery of cutting‑edge AI concepts, from deep learning to
-          NLP and computer vision. Published researcher in healthcare AI,
-          currently leading two pioneering projects advancing the
-          state‑of‑the‑art. A 2x Hackathon Winner, including 1st place at the
-          DataQuest2024 Hackathon and 2nd runner‑up in another, demonstrating a
-          strong track record in competitive AI problem‑solving.
+          Innovative AI Engineer with 1+ year of experience deploying AI systems in production environments, specializing in agentic systems, deep learning, computer vision, and NLP. An infinite learner, consistently adapting to new challenges to deliver cutting‑edge solutions. Proven track record of building AI prototypes from scratch and transforming them into robust, scalable, production‑ready systems that create business value. A 3X Hackathon Winner and Microsoft Azure Certified Data Science Associate, passionate about driving innovation and real‑world impact through applied AI.
         </p>
       </div>
-      <div class="card">
-        <h3>Positions of Expertise</h3>
-        <h3 class="highlight" style="margin-right: 10px">AI Engineer</h3>
-        <h3 class="highlight" style="margin-right: 10px">Data Scientist</h3>
-        <h3 class="highlight" style="margin-right: 10px">Backend Developer</h3>
-        <h3 class="highlight" style="margin-right: 10px">Full-Stack Developer</h3>
+      <div class="card positions">
+        <span class="position-title">AI Engineer</span>
+        <span class="position-title">Data Scientist</span>
+        <span class="position-title">Backend Developer</span>
+        <span class="position-title">Full-Stack Developer</span>
       </div>
       <div class="card half-width">
         <h3>Technologies I have worked with</h3>
