@@ -64,40 +64,13 @@
         color: var(--accent-color);
       }
 
-      /* Responsive styles */
-      @media only screen and (max-width: 600px) {
-        .nav {
-          justify-content: space-between;
-        }
-
-        .nav-links {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          right: 0;
-          background-color: rgba(26, 26, 26, 0.9);
-          width: 100%;
-          text-align: center;
-          padding: 20px 0;
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .burger {
-          display: block;
-        }
-      }
-
       .container {
         max-width: 600px;
         margin: 40px auto;
         padding: 30px;
         background: #fff;
         border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -122,7 +95,13 @@
         border-radius: 8px;
         padding: 16px 20px;
         margin-bottom: 18px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .info-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
 
       .info-item img {
@@ -131,7 +110,8 @@
         border-radius: 6px;
       }
 
-      .info-item a, .info-item span {
+      .info-item a,
+      .info-item span {
         color: #222;
         font-size: 1.1em;
         text-decoration: none;
@@ -142,27 +122,13 @@
         color: #005a80;
       }
 
-      .container, .card, .contact-info {
-        background: #fff;
-        color: #222;
-        border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      }
-
-      .container, .card, .publication, .contact-info {
-        background: #fff;
-        color: #222;
-      }
-
-      .card h3, .card p, .publication-title, .publication-desc, .contact-info h1, .contact-info p, .contact-info a {
-        color: #222;
-      }
-
-      h2, h3 {
+      h2,
+      h3 {
         color: #005a80;
       }
 
-      .btn, .btn-read-more {
+      .btn,
+      .btn-read-more {
         background-color: #005a80;
         color: #fff;
       }
@@ -190,42 +156,100 @@
         }
       }
 
+      /* Other card styles for different pages - these don't affect contact-info */
+      .card,
+      .project-card,
+      .cert-item,
+      .publication {
+        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12),
+          0 1.5px 6px rgba(0, 90, 128, 0.08);
+        border-radius: 16px;
+        margin: 24px;
+        padding: 24px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+        position: relative;
+      }
+
+      .card:hover,
+      .project-card:hover,
+      .cert-item:hover,
+      .publication:hover {
+        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18),
+          0 3px 12px rgba(0, 90, 128, 0.12);
+        transform: translateY(-4px) scale(1.03);
+      }
+
       /* Responsive styles */
       @media only screen and (max-width: 600px) {
         .nav {
+          justify-content: space-between;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: rgba(26, 26, 26, 0.9);
+          width: 100%;
+          text-align: center;
+          padding: 20px 0;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .burger {
+          display: block;
+        }
+
+        .nav {
           justify-content: center;
         }
+
         .nav a {
           margin: 0 10px;
         }
+
         .container {
           padding: 16px;
         }
+
         .info-item {
           flex-direction: column;
           align-items: flex-start;
           padding: 12px 10px;
         }
+
         .info-item img {
           margin-bottom: 8px;
         }
+
         .contact-info {
           padding: 20px;
         }
+
         .contact-info h1 {
           font-size: 2em;
         }
+
         .contact-info p {
           font-size: 1em;
         }
+
         .contact-info .info-item {
           margin-bottom: 20px;
         }
+
         .contact-info .info-item img {
           width: 40px;
           height: 40px;
           margin-right: 10px;
         }
+
         .contact-info .info-item a {
           font-size: 1em;
         }
@@ -256,16 +280,6 @@
           <img src="assets/contact_logos/medium.png" alt="Medium Icon" />
           <a href="https://medium.com/@neeldevenshah" target="_blank">Medium</a>
         </div>
-        <!-- <div class="info-item">
-          <img src="assets/contact_logos/kaggle.png" alt="Kaggle Icon" />
-          <a href="https://www.kaggle.com/neelshah2022" target="_blank"
-            >Kaggle</a
-          > -->
-        <!-- </div>
-        <div class="info-item">
-          <img src="assets/contact_logos/phone.png" alt="Phone Icon" />
-          <span>+91 8980552390</span>
-        </div> -->
         <div class="info-item">
           <img src="assets/contact_logos/email.png" alt="Email Icon" />
           <a href="mailto:neeldevenshah.ai@gmail.com"
@@ -275,10 +289,10 @@
       </div>
     </div>
     <script>
-      fetch('/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('navbar').innerHTML = data;
+      fetch("/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
         });
     </script>
   </body>

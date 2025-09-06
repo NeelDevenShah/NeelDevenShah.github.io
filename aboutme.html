@@ -284,6 +284,28 @@
         font-size: 1.1em;
         margin-top: 5px;
       }
+
+      .card,
+      .project-card,
+      .cert-item,
+      .publication,
+      .contact-info {
+        box-shadow: 0 8px 24px rgba(0, 90, 128, 0.12), 0 1.5px 6px rgba(0, 90, 128, 0.08);
+        border-radius: 16px;
+        margin: 24px;
+        padding: 24px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+        position: relative;
+      }
+      .card:hover,
+      .project-card:hover,
+      .cert-item:hover,
+      .publication:hover,
+      .contact-info:hover {
+        box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18), 0 3px 12px rgba(0, 90, 128, 0.12);
+        transform: translateY(-4px) scale(1.03);
+      }
     </style>
   </head>
   <body>
