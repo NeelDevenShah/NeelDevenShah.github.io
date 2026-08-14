@@ -136,6 +136,28 @@
           0 3px 12px rgba(0, 90, 128, 0.12);
         transform: translateY(-4px) scale(1.03);
       }
+      
+      /* Spinner Loader */
+      .widget-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 90, 128, 0.1);
+        border-top-color: #005a80;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body>
@@ -151,6 +173,10 @@
       <h1 style="text-align: center; color: #005a80; margin-bottom: 40px">
         Latest Blogs
       </h1>
+      <div id="blogs-loader" class="widget-loader">
+        <div class="spinner"></div>
+        <p style="color: #005a80; font-weight: 500; margin: 0;">Loading latest blogs...</p>
+      </div>
       <!-- Medium posts will be loaded here -->
     </div>
     <script>
@@ -162,16 +188,20 @@
         try {
           const response = await fetch(apiUrl);
           const data = await response.json();
+          
+          const loader = document.getElementById("blogs-loader");
+          if (loader) loader.style.display = 'none';
+
           if (!data.items) return;
           const container = document.getElementById("medium-masonry");
-
+ 
           // Masonry grid for posts
           const grid = document.createElement("div");
           grid.style.display = "grid";
           grid.style.gridTemplateColumns =
             "repeat(auto-fit, minmax(320px, 1fr))";
           grid.style.gap = "30px";
-
+ 
           data.items.forEach((post) => {
             const card = document.createElement("div");
             card.style.background = "#fff";
@@ -182,7 +212,7 @@
             card.style.flexDirection = "column";
             card.style.justifyContent = "space-between";
             card.style.minHeight = "320px";
-
+ 
             // Extract image from post content
             let imgSrc = "";
             const imgMatch = post.description.match(
@@ -191,7 +221,7 @@
             if (imgMatch && imgMatch[1]) {
               imgSrc = imgMatch[1];
             }
-
+ 
             card.innerHTML = `
               ${
                 imgSrc
@@ -211,7 +241,7 @@
             grid.appendChild(card);
           });
           container.appendChild(grid);
-
+ 
           // Add 'See more blogs' button at the end
           const moreDiv = document.createElement("div");
           moreDiv.style.textAlign = "center";
@@ -221,8 +251,10 @@
           `;
           container.appendChild(moreDiv);
         } catch (err) {
-          document.getElementById("medium-masonry").innerHTML =
-            "<p>Unable to load Medium posts.</p>";
+          const loader = document.getElementById("blogs-loader");
+          if (loader) loader.style.display = 'none';
+          document.getElementById("medium-masonry").innerHTML +=
+            "<p style='text-align:center;color:red;'>Unable to load Medium posts.</p>";
         }
       }
       fetchMediumRSS();

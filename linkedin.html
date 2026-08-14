@@ -191,6 +191,28 @@
         box-shadow: 0 16px 32px rgba(0, 90, 128, 0.18), 0 3px 12px rgba(0, 90, 128, 0.12);
         transform: translateY(-4px) scale(1.03);
       }
+      
+      /* Spinner Loader */
+      .widget-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 90, 128, 0.1);
+        border-top-color: #005a80;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body>
@@ -207,20 +229,51 @@
         const burger = document.querySelector(".burger");
         const navLinks = document.querySelector(".nav-links");
 
-        burger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
+        if (burger && navLinks) {
+          burger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
     </script>
 
     <div
       class="sk-ww-linkedin-profile-post"
       data-embed-id="25596288"
-      style="margin-top: 60px; margin-right: 20x; margin-left: 20px"
-    ></div>
+      style="margin-top: 60px; margin-right: 20px; margin-left: 20px; min-height: 400px; position: relative;"
+    >
+      <div id="linkedin-loader" class="widget-loader" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+         <div class="spinner"></div>
+         <p style="color: #005a80; font-weight: 500; margin: 0;">Loading LinkedIn posts...</p>
+      </div>
+    </div>
     <script
       src="https://widgets.sociablekit.com/linkedin-profile-posts/widget.js"
       defer
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".sk-ww-linkedin-profile-post");
+        if (container) {
+          const observer = new MutationObserver((mutations) => {
+            const children = Array.from(container.children);
+            const hasWidgetContent = children.some(child => child.id !== 'linkedin-loader');
+            if (hasWidgetContent) {
+              const loader = document.getElementById('linkedin-loader');
+              if (loader) loader.style.display = 'none';
+              observer.disconnect();
+            }
+          });
+          observer.observe(container, { childList: true, subtree: true });
+          
+          // Safety timeout (10 seconds)
+          setTimeout(() => {
+            const loader = document.getElementById('linkedin-loader');
+            if (loader) loader.style.display = 'none';
+            observer.disconnect();
+          }, 10000);
+        }
+      });
+    </script>
   </body>
 </html>
